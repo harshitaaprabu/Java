@@ -1,0 +1,45 @@
+Happy.java
+
+
+class Happy 
+{
+static int isHappy(int N)
+{
+int n,sum=0,rem=0;
+         n= N;
+         //System.out.println("n="+n);
+         do
+         {
+         sum=0;
+         while(N>0)
+         {
+             rem=N%10;
+             N=N/10;
+             //System.out.println("rem="+rem);
+             //System.out.println("N="+N);
+             sum= sum+(rem*rem);
+             
+         }
+         //System.out.println("sum="+sum);
+         if(sum==1) return 1;
+         else  N=sum;
+        } while(sum>9);
+        return 0;
+}
+}
+SubHappy.java
+class SubHappy extends Happy
+{
+	public static void main(String args[])
+	{
+		int num=1,count=0;
+		System.out.println("FIRST 10 HAPPY NUMBERS :)");
+		do {
+		if(Happy.isHappy(num) ==1)
+
+			{ count++;System.out.println(num);}
+		num=num+1;
+		} while(count<10);
+	}
+}
+ 

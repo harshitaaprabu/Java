@@ -1,0 +1,68 @@
+import java.util.*;
+class Shapes
+{
+  double dim1;
+  double dim2;
+  double dim3;
+  double area(double dim1) //circle
+  {
+	final double PIE = 3.1412;
+	this.dim1 = dim1;
+	return PIE*(dim1*dim1);
+  }
+  double area(double dim1, double dim2) //rectangle square
+  {
+	this.dim1 = dim1;
+	this.dim2 = dim2;
+	return dim1*dim2;
+  }
+  double area(double dim1, double dim2, double dim3) //paralleogram
+  {
+	this.dim1 = dim1;
+	this.dim2 = dim2;
+	this.dim3 = Math.toRadians(dim3);
+        return dim1*dim2*Math.sin(this.dim3);
+  }
+}
+class ShapesDemo 
+{
+public static void main(String args[])
+{
+	Shapes circle = new Shapes();
+	Shapes square = new Shapes();
+	Shapes rect = new Shapes();
+	Shapes paral = new Shapes();
+	int choice=0;
+	double dim1,dim2,dim3;
+	Scanner sc =  new Scanner(System.in);
+	System.out.println("What shape you have got to find Area? 1.Circle 2. Square 3.Rectangle 4. Parallelogram, Press 1 or 2  3 or 4.....");
+	choice = sc.nextInt();
+	switch(choice) {
+	case 1:	System.out.println("Enter the Radius  ");
+		dim1 = sc.nextDouble();
+		System.out.println("Area of the Circle is "+ circle.area(dim1));
+		break;
+	
+	case 2:	System.out.println("Enter the Length and breadth one by one  ");
+		dim1 = sc.nextDouble();
+		dim2 = sc.nextDouble();		
+		System.out.println("Area of the Square is "+ square.area(dim1,dim2));
+		break;	
+
+	case 3:	System.out.println("Enter the Length and breadth one by one  ");
+		dim1 = sc.nextDouble();
+		dim2 = sc.nextDouble();		
+		System.out.println("Area of the Reactangle is "+ rect.area(dim1,dim2));
+		break;
+	case 4:	System.out.println("Enter the Length , breadth and angle one by one  ");
+		dim1 = sc.nextDouble();
+		dim2 = sc.nextDouble();	
+		dim3 = sc.nextDouble();	
+		System.out.println("Area of the Parallelogram is "+ paral.area(dim1,dim2,dim3));
+		break;
+	default: System.out.println("Invalid Choice!");
+
+	}
+}
+}
+

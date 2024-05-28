@@ -1,0 +1,23 @@
+import java.time.*;
+import java.time.format.*;
+import java.util.*;
+public class Main {
+   public static void main(String[] args) {
+	//Specify the pattern here that matches the given string
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    Scanner sc = new Scanner(System.in);
+	//String that contains date as a String
+	System.out.println("enter 2 dates(dd/MM/yyyy) one in a line");
+	String stringDate1 = sc.nextLine();
+    String stringDate2 = sc.nextLine();
+	
+//Converting String to LocalDate
+	LocalDate date1 = LocalDate.parse(stringDate1, formatter);
+    LocalDate date2 = LocalDate.parse(stringDate2, formatter);
+    Period diff = Period.between(date1, date2);
+ 
+     System.out.printf("\nDifference is %d years, %d months and %d days old\n\n", 
+                    diff.getYears(), diff.getMonths(), diff.getDays());
+	
+   }
+}

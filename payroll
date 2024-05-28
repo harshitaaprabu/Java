@@ -1,0 +1,50 @@
+import java.util.*;
+class Employee {
+double bp,da,hra,ma,epf,pension,charity;
+double gp,np;
+void calcAllowances(double bp)
+{
+ this.bp = bp;
+ da = bp*11/100;
+ hra = 10*bp/100;
+ ma = 2*bp/100;
+
+}
+void calcDeductions()
+{
+epf= 13.3*bp/100;
+pension = 500;
+charity = 200;
+}
+void calcSalary()
+{
+  gp = bp+da+hra+ma;
+  np = gp-(epf+pension+charity);
+}
+void display()
+{
+ System.out.println("Your Basic Pay:" + bp); 
+ System.out.println("Your DEarness Allowance:" + da); 
+System.out.println("Your HRA:" + hra); 
+System.out.println("Your Medical Allowance:" + ma); 
+System.out.println("Your Gross pay:" + gp); 
+System.out.println("Your EPF:" + epf); 
+System.out.println("Your pension:" + pension); 
+System.out.println("Your Charity:" + charity); 
+System.out.println("Your NetPay:" + np); 
+}
+}
+
+class Main {
+public static void main(String args[])
+{
+ Employee emp = new Employee();
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter the Basic pay...");
+ double bp = sc.nextDouble();
+ emp.calcAllowances(bp);
+ emp.calcDeductions();
+ emp.calcSalary();
+ emp.display();
+ }
+}
